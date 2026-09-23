@@ -1,6 +1,6 @@
 1. Database
 
-Aprire HeidiSQL, connettersi al server MySQL ed eseguire il file database/schema.sql
+Aprire HeidiSQL, connettersi al server XAMPP (mysql) ed eseguire il file database/schema.sql
 
 2. Frontend
 
