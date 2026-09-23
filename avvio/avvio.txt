@@ -1,0 +1,22 @@
+1. Database
+
+Aprire HeidiSQL, connettersi al server MySQL ed eseguire il file database/schema.sql
+
+2. Frontend
+
+cd frontend
+npm install
+npm start
+
+3. Variabili d'ambiente (backend/.env)
+
+DB_HOST=<host>
+DB_PORT=<porta>
+DB_USER=<utente>
+DB_PASSWORD=<password>
+DB_NAME=ristorante
+DB_SSL=false
+
+cd backend
+npm install
+npm start

@@ -1,0 +1,50 @@
+h1 {
+    font-weight: 600;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.dish-card,
+.category-card {
+    transition: 0.2s;
+}
+
+.dish-card:hover,
+.category-card:hover {
+    transform: translateY(-2px);
+}
+
+button {
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.container py-4 {
+    background-color: #f5ffbf;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #ddd;
+}
+
+.buttons button.active {
+    background: #960c83;
+    color: white;
+}
+
+footer {
+    font-size: 14px;
+}
