@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "Menu Ristorante",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Dishes",
+      "item": [
+        {
+          "name": "GET dishes",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/dishes"
+          }
+        },
+        {
+          "name": "POST dish",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Risotto ai funghi\",\n  \"price\": 12.50,\n  \"description\": \"Risotto cremoso con porcini freschi\"\n}"
+            },
+            "url": "{{base_url}}/api/dishes"
+          }
+        },
+        {
+          "name": "POST dish 400 (campo mancante)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Piatto senza nome e senza prezzo\"\n}"
+            },
+            "url": "{{base_url}}/api/dishes"
+          }
+        },
+        {
+          "name": "DELETE dish",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/dishes/1"
+          }
+        },
+        {
+          "name": "DELETE dish 404",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/dishes/9999"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "GET categories",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/categories"
+          }
+        },
+        {
+          "name": "POST category",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Vegetariano\"\n}"
+            },
+            "url": "{{base_url}}/api/categories"
+          }
+        },
+        {
+          "name": "POST category 400 (nome mancante)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "{{base_url}}/api/categories"
+          }
+        },
+        {
+          "name": "DELETE category",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/categories/1"
+          }
+        },
+        {
+          "name": "DELETE category 404",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/categories/9999"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dish-Category (N:N)",
+      "item": [
+        {
+          "name": "POST aggiungi categoria a piatto",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": 2\n}"
+            },
+            "url": "{{base_url}}/api/dishes/2/categories"
+          }
+        },
+        {
+          "name": "POST aggiungi categoria 409 (già associata)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": 2\n}"
+            },
+            "url": "{{base_url}}/api/dishes/2/categories"
+          }
+        },
+        {
+          "name": "DELETE rimuovi categoria da piatto",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/dishes/2/categories/2"
+          }
+        },
+        {
+          "name": "DELETE rimuovi categoria 404 (non associata)",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/dishes/2/categories/9999"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
